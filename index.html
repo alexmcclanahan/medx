@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!-- Copyright [2017] [Alexander McClanahan]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>MeDx</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+	<!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-deep_purple.min.css" />
+
+    <link rel="stylesheet" href="http://209.208.62.117//main.css">
+
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__header-row">
+            <h3>MeDx</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+            <a href="#overview" class="mdl-layout__tab is-active">home</a>
+            <a href="#features" class="mdl-layout__tab">about us</a>
+			<a href="#features" class="mdl-layout__tab">contact</a>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+                <i class="material-icons" role="presentation">add</i>
+                <span class="visuallyhidden">Add</span>
+            </button>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--1.5dp">
+                <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                    <div class="mdl-card__supporting-text"><form action="dataByTx" method="get">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="insurance_input" list="insurance_datalist">
+                            <label class="mdl-textfield__label" for="insurance_input">Insurance company</label>
+                        <datalist id="insurance_datalist"><option value="Florida Blue (BCBS of FL)"></datalist>
+                        </div>
+
+                        <!--comment out plan, to redo, put two dashes before floating-label.
+                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield-floating-label"> -->
+                        <!--   <input class="mdl-textfield__input" type="text" id="plan_input">
+                            <label class="mdl-textfield__label" for="plan_input">Specific insurance plan (if any)</label>
+                        </div> -->
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="treatment_input" name="tx" list="treatment_inputd">
+                            <label class="mdl-textfield__label" for="treatment_input">Treatment</label>
+                            <datalist id="treatment_inputd">
+
+                                <option value='Abatacept (Orencia®)'>
+<option value='Abiraterone Acetate (Zytiga™) Tablet'>
+<option value='Adalimumab (Humira®)'>
+<option value='Ado-trastuzumab emtansine (Kadcyla™)'>
+<option value='Afatinib (Gilotrif™) Tablets'>
+<option value='Agalsidase Beta (Fabrazyme®) IV'>
+<option value='Alectinib (Alecensa®)'>
+<option value='Alemtuzumab (Lemtrada™) IV'>
+<option value='Alpha1-Proteinase Inhibitors (Human)'>
+<option value='Altretamine (Hexalen®) Capsules'>
+<option value='Anakinra (Kineret®)'>
+<option value='Apremilast (Otezla®) Tablet'>
+<option value='Asfotase alfa (Strensiq™)'>
+<option value='Asparaginase (Elspar® Erwinaze™) Injection'>
+<option value='Axitinib (Inlyta®) Tablets'>
+<option value='Azacitidine (Vidaza®) Injection'>
+<option value='Belimumab (Benlysta®) Injection'>
+<option value='Belinostat (Beleodaq™) Injection'>
+<option value='Bendamustine HCl (Bendeka®, Treanda®) Injection'>
+<option value='Betaine, anhydrous (Cystadane®) Oral Solution'>
+<option value='Bevacizumab (Avastin®) Injection'>
+<option value='Bexarotene (Targretin®) Capsules and Gel'>
+<option value='Blinatumomab (Blincyto™) IV'>
+<option value='Bortezomib (Velcade®) Injection'>
+<option value='Bosutinib (Bosulif®) Tablets'>
+<option value='Bosutinib (Bosulif®) Tablets'>
+<option value='Botulinum Toxins'>
+<option value='Brentuximab (Adcetris®) Injection'>
+<option value='Buprenorphine HCl (Probuphine ®) Subdermal Implant'>
+<option value='Cabazitaxel (Jevtana®) Injection'>
+<option value='Cabozantinib capsules and tablets (Cometriq®, Cabometyx®)'>
+<option value='Canakinumab (Ilaris®) Injection'>
+<option value='Capecitabine (Xeloda®) Tablets'>
+<option value='Carboplatin (Paraplatin®) Injection'>
+<option value='Carfilzomib (Kyprolis®) Injection'>
+<option value='Ceritinib (Zykadia™) Capsules'>
+<option value='Certolizumab Pegol (Cimzia®)'>
+<option value='Cholic Acid (Cholbam®) Capsule'>
+<option value='Clotting Factors and Coagulant Blood Products (Anti-inhibitor Coagulant Complex - Feiba; Fibrinogen concentrate - RiaSTAP;><option value=Factor VIIa - NovoSeven, NovoSeven RT; Factor VIII - Human: Hemofil M, Monoclate-P, Recombinant: Advate, Helixate FS, Kogenate FS, Kovaltry, Novoeight, Nuwiq, Recombinate, ReFacto, Xyntha;
+Factor VIII/VWF complex - Alphanate, Humate P, Koate-DVI, Octanate, Wilate; von Willebrand factor, recombinant - Vonvendi; Antihemophilic factor porcine, recombinant - Obizur;
+Antihemophilic factor (recombinant), single chain - Afstyla; Antihemophilic factor Fc fusion protein, recombinant (rFVIIIFc) - Eloctate;
+Antihemophilic factor pegylated, recombinant - Adynovate; Factor IX - Human: AlphaNine SD, Mononine, Recombinant: BeneFIX, RIXUBIS, Ixinity;
+Factor IX complex - Bebulin, Profilnine SD; Factor IX albumin fusion protein, recombinant - Idelvion; Factor IX Fc fusion protein, recombinant - Alprolix;
+Coagulation Factor X, human - Coagadex; Factor XIII - Human: Corifact, Recombinant: Tretten'
+<option value='Cobimetinib (Cotellic®) Tablet'>
+<option value='Contraceptive Drugs'>
+<option value='Corticosteroid Intravitreal Implant'>
+<option value='Crizotinib (Xalkori®) Capsules'>
+<option value='Cysteamine Bitartrate (Procysbi™) Capsules'>
+<option value='Dabrafenib (Tafinlar®) Capsules'>
+<option value='Dalfampridine (Ampyra™) Oral'>
+<option value='Daratumumab (Darzalex®) Injection'>
+<option value='Dasatinib (Sprycel®) Tablets'>
+<option value='Denosumab (Prolia™; Xgeva™) Injection'>
+<option value='Dichlorphenamide (Keveyis)'>
+<option value='Dimethyl Fumarate (Tecfidera®) Capsule'>
+<option value='Dinutuximab (Unituxin™)'>
+<option value='Docetaxel (Taxotere®) IV'>
+<option value='Doxorubicin HCl Liposome (Doxil®) Injection'>
+<option value='Eculizumab (Soliris®) Injection'>
+<option value='Elosulfase alfa (Vimizim™) Injection'>
+<option value='Elotuzumab (Empliciti™) Injection'>
+<option value='Eltrombopag (Promacta®) Tablets'>
+<option value='Enzalutamide (Xtandi®) Capsules'>
+<option value='Eribulin Mesylate (Halaven®) Injection'>
+<option value='Erlotinib (Tarceva®) Tablets'>
+<option value='Erythropoiesis Stimulating Agents'>
+<option value='Etanercept (Enbrel®)'>
+<option value='Eteplirsen (Exondys 51)'>
+<option value='Everolimus (Afinitor®, Afinitor Disperz®) Tablets'>
+<option value='Ferric carboxymaltose (Injectafer®)'>
+<option value='Fingolimod (Gilenya™) Capsule'>
+<option value='Fosaprepitant (Emend®) Injection'>
+<option value='Fulvestrant (Faslodex®) IM'>
+<option value='Gefitinib (Iressa)'>
+<option value='Gemcitabine (Gemzar®)'>
+<option value='Glycerol Phenylbutyrate (Ravicti®)'>
+<option value='Golimumab (Simponi®, Simponi® Aria)'>
+<option value='Gonadotropin Releasing Hormone Analogs and Antagonists'>
+<option value='Granisetron (Sustol®) injection'>
+<option value='Granulocyte Colony Stimulating Factors'>
+<option value='Growth Hormone Therapy'>
+<option value='H.P. Acthar® Gel (Repository corticotropin)'>
+<option value='Hepatitis C Drug Therapy'>
+<option value='Hereditary Angioedema Drug Therapy'>
+<option value='Hormone Replacement'>
+<option value='Human EGFR Inhibitors (Cetuximab [Erbitux®], Panitumumab [Vectibix®])'>
+<option value='Ibandronate (Boniva®) Injection'>
+<option value='Ibrutinib (Imbruvica®)'>
+<option value='Idelalisib (Zydelig®) Oral Tablet'>
+<option value='Imatinib Mesylate (Gleevec®) Tablets'>
+<option value='Immune Globulin Therapy'>
+<option value='Infliximab (Remicade®) and Infliximab-dyyb (Inflectra®)'>
+<option value='Intrathecal Drug Therapy for Long-Term Pain Management'>
+<option value='Intravenous Enzyme Replacement Therapy for Gaucher Disease'>
+<option value='Ipilimumab (Yervoy™) Injection'>
+<option value='Irinotecan HCl (Camptosar®) Injection'>
+<option value='Irinotecan Liposome Injection (Onivyde™)'>
+<option value='Ivacaftor (Kalydeco™) Oral'>
+<option value='Ixazomib (Ninlaro®) Capsule'>
+<option value='Ixekizumab (Taltz®) Injection'>
+<option value='Lanreotide (Somatuline® Depot) Injection'>
+<option value='Lapatinib (Tykerb®) Tablet'>
+<option value='Lenalidomide (Revlimid®)'>
+<option value='Lenvatinib (Lenvima)'>
+<option value='Levoleucovorin (Fusilev®) IV'>
+<option value='Lomitapide (Juxtapid®) Oral'>
+<option value='Lumacaftor/Ivacaftor (Orkambi™) Capsule'>
+<option value='Mecasermin (Increlex®) Injection'>
+<option value='Melphalan HCl, Captisol-Enabled (Evomela®) IV Infusion'>
+<option value='Mepolizumab (Nucala)'>
+<option value='Metreleptin (Myalept™) Injection'>
+<option value='Mifepristone (Korlym™) Oral'>
+<option value='Mipomersen Sodium (Kynamro®) Injection'>
+<option value='Mitotane (Lysodren®) Tablets'>
+<option value='Multiple Sclerosis Self Injectable Therapy'>
+<option value='Natalizumab (Tysabri®) IV'>
+<option value='Necitumumab (Portrazza™)'>
+<option value='Nilotinib (Tasigna®) Capsules'>
+<option value='Nintedanib (Ofev®) Oral Capsules'>
+<option value='Nitisinone (Orfadin®) Capsules'>
+<option value='Nivolumab (Opdivo®)'>
+<option value='Obeticholic Acid (Ocaliva®) Tablet'>
+<option value='Obinutuzumab (Gazyva®) Injection'>
+<option value='Octreotide Acetate (Sandostatin LAR® Depot) Injection'>
+<option value='Olaparib (Lynparza™)'>
+<option value='Omacetaxine Mepesuccinate (Synribo®) Injection'>
+<option value='Omalizumab (Xolair®)'>
+<option value='Ondansetron HCl (Zofran®) Injection'>
+<option value='Oprelvekin; Interleukin 11 (Neumega®)'>
+<option value='Oral Therapy for Gaucher Disease'>
+<option value='Osimertinib (Tagrisso™)'>
+<option value='Oxaliplatin (Eloxatin®) Injection'>
+<option value='Paclitaxel and Nab-Paclitaxel IV'>
+<option value='Palbociclib (Ibrance®)'>
+<option value='Palivizumab (Synagis®)'>
+<option value='Palonosetron Hydrochloride (Aloxi®)'>
+<option value='Panobinostat (Farydak) Capsule'>
+<option value='Parathyroid Hormone (Natpara) Injection'>
+<option value='Pasireotide (Signifor®, Signifor LAR®) Injection'>
+<option value='Pazopanib (Votrient™) Tablets'>
+<option value='PCSK9 Inhibitors'>
+<option value='Pembrolizumab (Keytruda®) Injection'>
+<option value='Pemetrexed Disodium (Alimta®) IV'>
+<option value='Pertuzumab (Perjeta™) Injection'>
+<option value='Pimavanserin (Nuplazid®)'>
+<option value='Pirfenidone (Esbriet®) Oral Capsule'>
+<option value='Plerixafor (Mozobil) Injection'>
+<option value='Pomalidomide (Pomalyst®) Capsule'>
+<option value='Ponatinib (Iclusig®) Tablets'>
+<option value='Pralatrexate (Folotyn™) IV'>
+<option value='Procarbazine (Matulane®) Capsules'>
+<option value='Progesterone Therapy in High Risk Pregnancies'>
+<option value='Protein C Concentrate, human (Ceprotin) Injection'>
+<option value='Pulmonary Hypertension Drug Therapy'>
+<option value='Pyridoxine HCl Injection (vitamin B6)'>
+<option value='Pyrimethamine (Daraprim)'>
+<option value='Radium Ra 223 (Xofigo®) Injection'>
+<option value='Ramucirumab (Cyramza™) Injection'>
+<option value='Rasburicase (Elitek®)'>
+<option value='Regorafenib (Stivarga®) Tablets'>
+<option value='Reslizumab (Cinqair®) IV infusion'>
+<option value='Rilonacept (Arcalyst®) Injection'>
+<option value='Rituximab (Rituxan®)'>
+<option value='Romiplostim Injection (Nplate™)'>
+<option value='Ruxolitinib (Jakafi™) Tablets'>
+<option value='Sapropterin (Kuvan®) Tablets'>
+<option value='Secukinumab (Cosentyx®)'>
+<option value='Siltuximab (Sylvant™) Injection'>
+<option value='Sipuleucel-T (Provenge®)'>
+<option value='Sodium Oxybate (Xyrem®) Oral'>
+<option value='Sodium Phenylbutyrate (Buphenyl®)'>
+<option value='Sonidegib (Odomzo®) Capsule'>
+<option value='Sorafenib (Nexavar®) Tablets'>
+<option value='Sunitinib Malate (Sutent®) Capsules'>
+<option value='Tasimelteon (Hetlioz™) Capsules'>
+<option value='Teduglutide (rDNA origin) (Gattex®) Injection'>
+<option value='Temozolomide (Temodar®) Capsule and Injection'>
+<option value='Temsirolimus (Torisel®) Injection'>
+<option value='Teriflunomide (Aubagio®) Tablet'>
+<option value='Teriparatide (Forteo®)'>
+<option value='Tesamorelin (Egrifta®) Injection'>
+<option value='Tetrabenazine (Xenazine®) Oral'>
+<option value='Thalidomide (Thalomid®) Capsules'>
+<option value='Thiamine HCl Injection (vitamin B-1)'>
+<option value='Tiopronin (Thiola®) Tablet'>
+<option value='Tocilizumab (Actemra®) Injection'>
+<option value='Tofacitinib (Xeljanz®, Xeljanz® XR) Tablet and Extended-Release Tablet'>
+<option value='Tolvaptan (Samsca™) Oral'>
+<option value='Topotecan HCl (Hycamtin®) Injection and Capsule'>
+<option value='Trametinib (Mekinist™) Tablets'>
+<option value='Trastuzumab (Herceptin®) Injection'>
+<option value='Tretinoin Oral Capsules'>
+<option value='Trifluridine-Tipiracil (Lonsurf®) Capsule'>
+<option value='Ustekinumab (Stelara®)'>
+<option value='Vandetanib (Caprelsa®) Tablets'>
+<option value='Vascular Endothelial Growth Factor Inhibitors for Ocular Neovascularization'>
+<option value='Vedolizumab (Entyvio®) Injection'>
+<option value='Vemurafenib (Zelboraf™)'>
+<option value='Venetoclax (Venclexta®) Tablet'>
+<option value='Verteporfin (Visudyne™) Injection'>
+<option value='Vinorelbine Tartrate (Navelbine®) IV'>
+<option value='Viscosupplementation, Hyaluronan Injections (e.g. Synvisc®)'>
+<option value='Vismodegib (Erivedge®) Capsules'>
+<option value='Vitamin B-12 Injections'>
+<option value='Vorinostat (Zolinza®) Capsules'>
+<option value='Ziv-aflibercept (Zaltrap®) IV'>
+<option value='Zoledronic Acid IV (Reclast®; Zometa®)'>
+
+                            </datalist>
+                        </div>
+
+                        <div class="codes-button">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Get ICD-10 Codes!</button>
+
+
+        </div></form>
+                    </div>
+
+                   <!-- commented out vertical button. Add an extra - in between button & icon, and also in between menu & button in the ul.
+                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button-icon" id="btn1">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-js-menu mdl-menu-bottom-right" for="btn1">
+                        <li class="mdl-menu__item">Lorem</li>
+                        <li class="mdl-menu__item" disabled>Ipsum</li>
+                        <li class="mdl-menu__item">Dolor</li>
+                    </ul> -->
+                </div>
+            </section>
+            <section class="section--footer mdl-color--white mdl-grid">
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                    <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+                </div>
+				<div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>Empowering healthcare professionals to do what they do best</h5>
+                    Let us root through health insurance coverage policies while you, the healthcare professional, do all of the patient care. Our service will deliver to you the precise ICD-10 codes that an insurance company needs to see in order to cover a specialty treatment. All that you have to do is enter the necessary insurance and treatment data above, and our algorithm will do all the work.
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                    <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>Our philosophy</h5>
+                   Our core philosophy underlying this technology is that the act of diagnosing and caring for your patients should be as enjoyable as possible. Prescribing a specialty medication should no longer be a stressful, ambiguous process for healthcare professionals in today's information age. By extention, yours patients should not have to worry that their treatments and medications will be denied by their insurance company. Let us speed your office efficiency by ending the 'back and forth' haggle with health insurance companies.
+                </div>
+            </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="features">
+            <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+				<h4>Our mission</h4>
+                        Our mission is to empower healthcare professionals to do what they do best. As a healthcare professional, you have likely experienced the frustration that comes with a health insurance company refusing to pay for your patient's specialty medication because your diagnosis codes, upon billing, failed to match the diagnosis codes outlined in their coverage policy -- thereby rendering that medication 'not covered.' We believe in putting the power back in the hands of dedicated healthcare professionals like yourself, literally. By entering a patient's insurance company, their plan (if needed), and the treatment you desire for them, the precise ICD-10 diagnosis codes constituting medical necessity for coverage (as explicitly outlined in their coverage policy) will be delivered directly to you. This gives you the power to make the most effective decisions regarding your patient's health and plan of treatment once again.
+                   <ul class="toc">
+                        <h4>Contents</h4>
+                        <a href="#lorem1">Lorem ipsum</a>
+                        <a href="#lorem2">Lorem ipsum</a>
+                        <a href="#lorem3">Lorem ipsum</a>
+                        <a href="#lorem4">Lorem ipsum</a>
+                        <a href="#lorem5">Lorem ipsum</a>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--middle-section">
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">Features</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">Details</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="#">Spec</a></li>
+                        <li><a href="#">Tools</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">Technology</h1>
+                    <ul class="mdl-mega-footer--link-list">
+					<li><a href="#">How it works</a></li>
+                        <li><a href="#">Patterns</a></li>
+                        <li><a href="#">Usage</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contracts</a></li>
+                    </ul>
+                </div>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">FAQ</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li><a href="#">Questions</a></li>
+                        <li><a href="#">Answers</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mdl-mega-footer--bottom-section">
+                <div class="mdl-logo">
+                    More Information
+                </div>
+                <ul class="mdl-mega-footer--link-list">
+                    <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy and Terms</a></li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+</div>
+<script type="text/javascript" src="http://209.208.62.117//script.js"></script>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>
+
